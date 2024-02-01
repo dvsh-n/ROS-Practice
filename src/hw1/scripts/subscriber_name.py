@@ -3,20 +3,13 @@
 import rospy
 from std_msgs.msg import String
 
-def callbackName(data):
-    "Fill here"
-    pass
-
-
-
-
-
+def callback(data):
+    rospy.loginfo(rospy.get_caller_id()+ " I heard %s", data.data)
 
 def subscriber_name():
 
-    """Fill here"""
-
-    # spin() simply keeps python from exiting until this node is stopped
+    rospy.init_node('subscriber_name')
+    rospy.Subscriber('HW1/name', String, callback)
     rospy.spin()
 
 if __name__ == '__main__':
